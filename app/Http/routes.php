@@ -29,7 +29,6 @@ Route::group(['middleware' => ['web']], function () {
         return 'Hello welcome to my application';
     });
 
-
     Route::get('/book/create', function() {
         $view = '<form method="POST" action="/book/create">';
         $view .= csrf_field();
