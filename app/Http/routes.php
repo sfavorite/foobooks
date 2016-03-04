@@ -26,7 +26,7 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/', function () {
         #return view('welcome');
-        return 'Hello welcome to my application';
+        return 'Welcome to Foobooks';
     });
 
     Route::get('/book/create', function() {
@@ -47,4 +47,18 @@ Route::group(['middleware' => ['web']], function () {
         return 'The book you are looking for is ' . $title;
     });
 
+    Route::get('book/show/{title}', 'BookController@getShow');
+    Route::get('book/list', 'BookController@getIndex');
+
+    Route::get('/practice', function() {
+        echo 'Mail: ' . config('mail.driver') . '<br>';
+        echo 'Env: ' . config('app.env') . '<br>';
+        if (config('app.debug')) {
+            echo 'Debug: False<br>';
+        }
+        else {
+            echo 'Debug: True<br>';
+        }
+        echo 'URL: ' .config('app.url') . '<br>';
+    });
 });
