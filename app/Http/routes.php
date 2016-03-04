@@ -63,13 +63,13 @@ Route::group(['middleware' => ['web']], function () {
                 echo 'Debug: False<br>';
             }
             echo 'URL: ' .config('app.url') . '<br>';
-
+/*
             $data = Array('foo' => 'bar');
             Debugbar::info($data);
             Debugbar::error('Error!');
             Debugbar::warning('Watch out...');
             Debugbar::addMessage('Another message', 'mylabel');
-
+*/
         }
         else {
             return 'Hello';
