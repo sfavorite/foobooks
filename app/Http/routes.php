@@ -51,14 +51,29 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('book/list', 'BookController@getIndex');
 
     Route::get('/practice', function() {
-        echo 'Mail: ' . config('mail.driver') . '<br>';
-        echo 'Env: ' . config('app.env') . '<br>';
+
+        # If this isn't production show environment information
         if (config('app.debug')) {
-            echo 'Debug: True<br>';
+            echo 'Mail: ' . config('mail.driver') . '<br>';
+            echo 'Env: ' . config('app.env') . '<br>';
+            if (config('app.debug')) {
+                echo 'Debug: True<br>';
+            }
+            else {
+                echo 'Debug: False<br>';
+            }
+            echo 'URL: ' .config('app.url') . '<br>';
+
+            $data = Array('foo' => 'bar');
+            Debugbar::info($data);
+            Debugbar::error('Error!');
+            Debugbar::warning('Watch out...');
+            Debugbar::addMessage('Another message', 'mylabel');
+
         }
         else {
-            echo 'Debug: False<br>';
+            return 'Hello';
         }
-        echo 'URL: ' .config('app.url') . '<br>';
+
     });
 });
