@@ -54,10 +54,10 @@ Route::group(['middleware' => ['web']], function () {
         echo 'Mail: ' . config('mail.driver') . '<br>';
         echo 'Env: ' . config('app.env') . '<br>';
         if (config('app.debug')) {
-            echo 'Debug: False<br>';
+            echo 'Debug: True<br>';
         }
         else {
-            echo 'Debug: True<br>';
+            echo 'Debug: False<br>';
         }
         echo 'URL: ' .config('app.url') . '<br>';
     });
