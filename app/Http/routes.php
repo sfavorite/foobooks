@@ -22,6 +22,8 @@
 |
 */
 
+#use \Rych\Random\Random;
+
 Route::group(['middleware' => ['web']], function () {
 
     Route::get('/', function () {
@@ -50,7 +52,12 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('book/show/{title}', 'BookController@getShow');
     Route::get('book/list', 'BookController@getIndex');
 
+
     Route::get('/practice', function() {
+
+        $random = new Random();
+
+        echo $random->getRandomString(18) . '<br><br>';
 
         # If this isn't our production environment show debug information
         if (config('app.debug')) {
@@ -65,7 +72,7 @@ Route::group(['middleware' => ['web']], function () {
             echo 'URL: ' .config('app.url') . '<br>';
 
             $data = Array('foo' => 'bar');
-            
+
             Debugbar::info($data);
             Debugbar::error('Error!');
             Debugbar::warning('Watch out...');
