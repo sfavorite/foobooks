@@ -52,7 +52,7 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/practice', function() {
 
-        # If this isn't production show environment information
+        # If this isn't our production environment show debug information
         if (config('app.debug')) {
             echo 'Mail: ' . config('mail.driver') . '<br>';
             echo 'Env: ' . config('app.env') . '<br>';
@@ -65,6 +65,7 @@ Route::group(['middleware' => ['web']], function () {
             echo 'URL: ' .config('app.url') . '<br>';
 
             $data = Array('foo' => 'bar');
+            
             Debugbar::info($data);
             Debugbar::error('Error!');
             Debugbar::warning('Watch out...');
