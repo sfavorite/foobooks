@@ -91,6 +91,7 @@ Route::group(['middleware' => ['web']], function () {
 
     });
 
-    Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
-
+    if (App::environment('local')) {
+        Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+    }
 });
