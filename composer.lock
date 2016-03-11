@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "fa47f180d867d4720a402de6eddb10e7",
-    "content-hash": "879c83001eb47193effeade5e4849c39",
+    "hash": "67587868baf0ff5156234679dbefb34b",
+    "content-hash": "b725e4b69bf4121393cee2909e974cf1",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -1009,6 +1009,52 @@
                 "shell"
             ],
             "time": "2016-02-27 18:59:18"
+        },
+        {
+            "name": "rap2hpoutre/laravel-log-viewer",
+            "version": "v0.5.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rap2hpoutre/laravel-log-viewer.git",
+                "reference": "120ed1834f4be9b60cca3d2a5b80e408287874de"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rap2hpoutre/laravel-log-viewer/zipball/120ed1834f4be9b60cca3d2a5b80e408287874de",
+                "reference": "120ed1834f4be9b60cca3d2a5b80e408287874de",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "4.2.*|5.*",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/controllers"
+                ],
+                "psr-0": {
+                    "Rap2hpoutre\\LaravelLogViewer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "rap2hpoutre",
+                    "email": "raphael@ornikar.com"
+                }
+            ],
+            "description": "A Laravel log reader",
+            "keywords": [
+                "log",
+                "log-reader",
+                "log-viewer",
+                "logging"
+            ],
+            "time": "2016-01-25 20:12:40"
         },
         {
             "name": "rych/random",

@@ -24,6 +24,8 @@
 
 #use \Rych\Random\Random;
 
+Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+
 Route::group(['middleware' => ['web']], function () {
 
     Route::get('/', function () {
@@ -45,11 +47,15 @@ Route::group(['middleware' => ['web']], function () {
         return 'Add the book: ' . $_POST['title'];
     });
 
+/* Had to comment this out so that /book/show would be found
     Route::get('/book/{title}', function($title) {
         return 'The book you are looking for is ' . $title;
     });
-
-    Route::get('book/show/{title}', 'BookController@getShow');
+*/
+    /* The question mark makes the title optional. You must match this in the
+    controller.php function.
+    */
+    Route::get('book/show/{title?}', 'BookController@getShow');
     Route::get('book/list', 'BookController@getIndex');
 
 
@@ -82,5 +88,9 @@ Route::group(['middleware' => ['web']], function () {
             return 'Hello';
         }
 
+
     });
+
+    Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+
 });
