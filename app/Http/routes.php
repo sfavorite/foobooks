@@ -24,7 +24,7 @@
 
 #use \Rych\Random\Random;
 
-Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
+#Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
 Route::group(['middleware' => ['web']], function () {
 
@@ -88,10 +88,10 @@ Route::group(['middleware' => ['web']], function () {
             return 'Hello';
         }
 
-
     });
 
     if (App::environment('local')) {
         Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
     }
+
 });
