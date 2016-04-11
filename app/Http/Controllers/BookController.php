@@ -3,6 +3,7 @@
 namespace Foobooks\Http\Controllers;
 
 use Foobooks\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class BookController extends Controller {
 
@@ -24,8 +25,15 @@ class BookController extends Controller {
             ->with('abc', '123');
             */
 
-            /* Or in an array */
+            /* Or in an array
             return view('books.show', ['title' => $title, 'abc' => '123']);
+            */
+
+            return view('books.show', [
+                'title' => '$title',
+            ]);
+
+
 
     }
 
@@ -33,14 +41,20 @@ class BookController extends Controller {
      * Responds to requests to GET /books/create
      */
     public function getCreate() {
-        return 'Form to create a new book';
+        return view('books.create');
     }
 
     /**
      * Responds to requests to POST /books/create
      */
-    public function postCreate() {
-        return 'Process adding new book';
+    public function postCreate(Request $request) {
+
+        $this->validate($request, [
+            'title' => 'required|min:3',
+            'author' => 'required'
+        ]);
+
+        return 'Add the book: ' . $request->input('title');
     }
 }
 
