@@ -38,6 +38,18 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/book/create', 'BookController@postCreate');
     Route::post('/book/show/{title?}', 'BookController@getShow');
 
+    Route::get('/practice/ex4', 'PracticeController@getEx4');
+    Route::get('/practice/ex5', 'PracticeController@getEx5');
+    Route::get('/practice/ex6', 'PracticeController@getEx6');
+    Route::get('/practice/ex7', 'PracticeController@getEx7');
+    Route::get('/practice/ex8', 'PracticeController@getEx8');
+    Route::get('/practice/ex9', 'PracticeController@getEx9');
+    Route::get('/practice/ex10', 'PracticeController@getEx10');
+    Route::get('/practice/ex11', 'PracticeController@getEx11');
+    Route::get('/practice/ex12', 'PracticeController@getEx12');
+    Route::get('/practice/ex13', 'PracticeController@getEx13');
+    Route::get('/practice/ex16', 'PracticeController@getEx16');
+
 
     Route::get('/practice', function() {
 
