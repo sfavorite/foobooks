@@ -28,12 +28,13 @@
 
 Route::group(['middleware' => ['web']], function () {
 
-    Route::get('/', function () {
-        return view('welcome');
-    });
 
 
+	Route::get('/', 'BookController@getIndex'); # Home
     Route::get('/books', 'BookController@getIndex');
+	Route::get('/book/edit/{id?}', 'BookController@getEdit');
+	Route::post('/book/edit/{id?}', 'BookController@postEdit');
+
     Route::get('/book/create', 'BookController@getCreate');
     Route::post('/book/create', 'BookController@postCreate');
     Route::post('/book/show/{title?}', 'BookController@getShow');
@@ -49,6 +50,9 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/practice/ex12', 'PracticeController@getEx12');
     Route::get('/practice/ex13', 'PracticeController@getEx13');
     Route::get('/practice/ex16', 'PracticeController@getEx16');
+    Route::get('/practice/ex17', 'PracticeController@getEx17');
+	Route::get('/practice/ex18', 'PracticeController@getEx18');
+	Route::get('/practice/ex19', 'PracticeController@getEx19');
 
 
     Route::get('/practice', function() {
