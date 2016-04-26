@@ -171,6 +171,28 @@ class PracticeController extends Controller {
         $book->save();
         dump($book->toArray());
     }
+
+    public function getEx20() {
+        $book = \Foobooks\Book::where('title', '=', 'The Great Gatsby')->first();
+
+        dump($book->tags);
+
+        foreach($book->tags as $tag) {
+            echo $tag->name  . "<br>";
+        }
+    }
+
+    public function getEx21() {
+        $books = \Foobooks\Book::with('tags')->get();
+
+        foreach ($books as $book) {
+            echo $book->title . "<br>";
+            foreach($book->tags as $tag) {
+                echo $tag->name . "<br>";
+            }
+            echo "<br>";
+        }
+    }
 }
 
 ?>

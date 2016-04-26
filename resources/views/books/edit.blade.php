@@ -24,13 +24,13 @@
         </div>
 
         <div class='form-group'>
-           <label>Author:</label>
-           <input
-               type='text'
-               id='author'
-               name='author'
-               value='{{ $book->author }}'
-           >
+            <label for='author_id'>Author:</label>
+           <select name='author_id' id='author_id'>
+               @foreach($authors_for_dropdown as $author_id => $author_name)
+                <?php $selected = ($book->author_id == $author_id) ? 'SELECTED' : '' ?>
+                    <option value='{{ $author_id }}' {{ $selected }}>{{ $author_name }}</option>
+               @endforeach
+           </select>
            <div class='error'>{{ $errors->first('author') }}</div>
         </div>
 
@@ -67,13 +67,23 @@
            <div class='error'>{{ $errors->first('purchase_link') }}</div>
         </div>
 
+        <div>
+            <label>Tags</label>
+                @foreach($tags_for_checkboxes as $tag_id => $tag_name)
+                    <input type='checkbox'
+                            value='{{ $tag_id }}'
+                            name='tags[]'
+                            {{ (in_array($tag_id, $tags_for_this_book)) ? 'CHECKED' : '' }}
+                            >
+                            {{ $tag_name }} <br>
+                @endforeach
+        </div>
+
         <div class='form-instructions'>
             All fields are required
         </div>
 
         <button type="submit" class="btn btn-primary">Save changes</button>
-
-        
 
         <div class='error'>
             @if(count($errors) > 0)
