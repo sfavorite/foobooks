@@ -10,7 +10,6 @@
 
 @section('content')
 
-
 		<h1>All the books</h1>
 		@foreach($books as $book)
             <section class="book">

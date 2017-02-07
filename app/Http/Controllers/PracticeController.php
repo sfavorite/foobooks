@@ -30,7 +30,6 @@ class PracticeController extends Controller {
     }
 
     public function getEx5() {
-
         $books = Book::all();
 
         foreach ($books as $book) {
@@ -193,6 +192,47 @@ class PracticeController extends Controller {
             echo "<br>";
         }
     }
+
+    public function getEx22() {
+        \Mail::send([], [], function($message) {
+            $message->to('scot.favorite@gmail.com')
+            ->subject('Hello World')
+            ->setBody('This is a test message;');
+        });
+        return 'Basic, plain email send.';
+    }
+
+    public function getEx23() {
+        # Get the current logged in user
+        $user = \Auth::user();
+
+        # If user is not logged in, make them log in
+        if(!$user) return redirect()->guest('login');
+
+        # Grab any book, just to use as an example
+        $book = \Foobooks\Book::findOrFail(1);
+
+        # Create an array of data, which will be passed/available in the view
+        $data = array(
+            'user' => $user,
+            'book' => $book,
+        );
+
+        \Mail::send('emails.book-available', $data, function($message) use ($user,$book) {
+
+            $recipient_email = $user->email;
+            $recipient_name  = $user->name;
+            $subject  = 'The book '.$book->title.' is now available on Foobooks';
+
+            $message->to($recipient_email, $recipient_name)->subject($subject);
+
+        });
+
+        echo 'HTML email sent.';
+
+    }
+
+
 }
 
 ?>

@@ -65,6 +65,10 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/practice/ex19', 'PracticeController@getEx19');
 	Route::get('/practice/ex20', 'PracticeController@getEx20');
 	Route::get('/practice/ex21', 'PracticeController@getEx21');
+	Route::get('/practice/ex22', 'PracticeController@getEx22');
+	Route::get('/practice/ex23', 'PracticeController@getEx23');
+	Route::get('/practice/ex24', 'PracticeController@getEx24');
+	Route::get('/practice/ex25', 'PracticeController@getEx25');
 
 
     Route::get('/practice', function() {
